@@ -1,0 +1,22 @@
+name: tbib_timezone_offset
+description: Get date time with offset to local time , format time or convert it to iso format
+version: 0.0.1
+homepage: ""
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: 3.10.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  intl: ^0.18.0
+  json_serializable:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^0.3.0
+  very_good_analysis: ^5.0.0
+  build_runner:
+  json_annotation:
