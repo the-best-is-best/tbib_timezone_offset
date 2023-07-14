@@ -1,7 +1,7 @@
 name: tbib_timezone_offset
-description: Get date time with offset to local time , format time or convert it to iso format
+description: This Package used for Get date time with offset to local time , format time or convert it to iso format with date phone without location and server time zone not in egypt
 version: 0.0.1
-homepage: ""
+homepage: "https://github.com/the-best-is-best/tbib_timezone_offset"
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

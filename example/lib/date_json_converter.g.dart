@@ -7,10 +7,11 @@ part of 'date_json_converter.dart';
 // **************************************************************************
 
 DateTimeJson _$DateTimeJsonFromJson(Map<String, dynamic> json) => DateTimeJson(
-      date: const JsonDateTimeUTCConverter().fromJson(json['date'] as String),
+      date:
+          const JsonDateTimeOffsetConverter().fromJson(json['date'] as String),
     );
 
 Map<String, dynamic> _$DateTimeJsonToJson(DateTimeJson instance) =>
     <String, dynamic>{
-      'date': const JsonDateTimeUTCConverter().toJson(instance.date),
+      'date': const JsonDateTimeOffsetConverter().toJson(instance.date),
     };

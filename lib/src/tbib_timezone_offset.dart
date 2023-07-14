@@ -12,7 +12,7 @@ class TbibTimezoneOffset {
 extension DateTimeTbibTimezoneOffset on DateTime {
   /// get timezone offset
   Duration get getTimezoneOffset {
-    return this.timeZoneOffset;
+    return this.toLocal().timeZoneOffset;
   }
 
   /// get local date time
@@ -22,17 +22,21 @@ extension DateTimeTbibTimezoneOffset on DateTime {
 
   /// get iso date time string
   String get toIsoDateTimeLocalString {
-    return "${this.toIso8601String().replaceAll('Z', '')}${this.getTimezoneOffset.isNegative ? "-" : "+"}${this.getTimezoneOffset.inHours.abs().toString().padLeft(2, "0")}:${(this.getTimezoneOffset.inMinutes - this.getTimezoneOffset.inHours * 60).toString().padLeft(2, "0")}";
+    return "${this.toIsoDateTimeUTCString.replaceAll('Z', '')}${this.getTimezoneOffset.isNegative ? "-" : "+"}${this.getTimezoneOffset.inHours.abs().toString().padLeft(2, "0")}:${(this.getTimezoneOffset.inMinutes - this.getTimezoneOffset.inHours * 60).toString().padLeft(2, "0")}";
   }
 
   /// get iso date time string
   String get toIsoDateTimeUTCString {
-    return this.toUtc().toIso8601String();
+    // if (!this.isUtc) {
+    //   return '${this.add(this.getTimezoneOffset).toLocal().toIso8601String()}Z';
+    // }
+    return this.toLocal().toIso8601String();
   }
 
   /// format date
   String formatDate(String format) {
-    return DateFormat(format).format(this);
+    final dateString = this.toIsoDateTimeUTCString;
+    return DateFormat(format).format(DateTime.parse(dateString).toLocal());
   }
 }
 
@@ -54,12 +58,12 @@ extension DateTimeStringTbibTimezoneOffset on String {
   }
 
   /// get iso date time as local string
-  String get isoDateTimeLocalString {
-    return this.getDateTime.toIsoDateTimeLocalString;
+  String get toIsoDateTimeLocalString {
+    return DateTime.parse(this).toUtc().toIsoDateTimeLocalString;
   }
 
   /// get iso date time as utc string
-  String get isoDateTimeUTCString {
+  String get toIsoDateTimeUTCString {
     return this.getDateTime.toIsoDateTimeUTCString;
   }
 
