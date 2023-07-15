@@ -14,12 +14,12 @@ extension DateTimeTbibTimezoneOffset on DateTime {
 
   /// get iso date time string
   String get toIsoDateTimeLocalString {
-    return """${this.toIsoDateTimeUTCString.replaceAll('Z', '')}${this.getTimezoneOffset.isNegative ? "-" : "+"}${this.getTimezoneOffset.inHours.abs().toString().padLeft(2, "0")}:${(this.getTimezoneOffset.inMinutes - this.getTimezoneOffset.inHours * 60).toString().padLeft(2, "0")}""";
+    return """${this.toLocal().toIso8601String()}${this.getTimezoneOffset.isNegative ? "-" : "+"}${this.getTimezoneOffset.inHours.abs().toString().padLeft(2, "0")}:${(this.getTimezoneOffset.inMinutes - this.getTimezoneOffset.inHours * 60).toString().padLeft(2, "0")}""";
   }
 
   /// get iso date time string
   String get toIsoDateTimeUTCString {
-    return this.toLocal().toIso8601String();
+    return this.toUtc().toIso8601String();
   }
 
   /// format date

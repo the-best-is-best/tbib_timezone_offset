@@ -4,9 +4,14 @@ import 'dart:developer';
 import 'package:example/date_json_converter.dart';
 import 'package:flutter/material.dart';
 import 'package:tbib_timezone_offset/tbib_timezone_offset.dart';
+import 'package:timezone/data/latest_10y.dart';
+import 'package:timezone/standalone.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  initializeTimeZones();
+  tz.Location sydney = tz.getLocation('Australia/Sydney');
 
   /// egypt to australia
   log('date iso String wrong ${DateTime.now().toIso8601String()}');
@@ -19,8 +24,9 @@ void main() async {
 
   /// australia to egypt
   // DateTime dateAustralia = tz.TZDateTime.now(sydney);
-  DateTime dateAustralia = DateTime.parse(
-      DateTime.now().toIsoDateTimeUTCString.replaceAll("Z", "+10:00"));
+  DateTime dateAustralia =
+      DateTime.parse(tz.TZDateTime.now(sydney).toIso8601String());
+  log("date time AUS is  $dateAustralia");
   log("date time egypt is  ${dateAustralia.toIsoDateTimeUTCString}");
   log("date time egypt format  ${dateAustralia.formatDate("yyyy-MM-dd HH:mm:ss")}");
   log("date time egypt format from date time ${dateAustralia.formatDate("yyyy-MM-dd HH:mm:ss")}");
@@ -30,9 +36,8 @@ void main() async {
   log('\n');
   log('\n x');
   log('\n   xx');
-  // String dateAustraliaString = tz.TZDateTime.now(sydney).toIso8601String();
-  String dateAustraliaString =
-      DateTime.now().toIsoDateTimeUTCString.replaceAll("Z", "+10:00");
+  String dateAustraliaString = tz.TZDateTime.now(sydney).toIso8601String();
+
   log("date time String egypt is  ${dateAustraliaString.toIsoDateTimeLocalString}");
   log("date time String egypt format  ${dateAustraliaString.formatDate("yyyy-MM-dd HH:mm:ss")}");
 
@@ -43,10 +48,10 @@ void main() async {
   log('\n x');
   log('\n   xx');
 
-  log("date time json ${(dateTimeJson.toJson()['date'] as String).toIsoDateTimeUTCString}");
+  log("date time json ${(dateTimeJson.date?.toIsoDateTimeUTCString)}");
   var date = DateTime.parse("2023-07-14 20:00:28.733182+10:00");
 
-  log(date.formatDate("dd/MM/yyyy HH:mm:ss"));
+  log(date.toLocal().formatDate("dd/MM/yyyy HH:mm:ss"));
   runApp(const App());
 }
 

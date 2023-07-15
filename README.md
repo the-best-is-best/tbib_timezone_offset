@@ -1,6 +1,8 @@
 # Tbib Timezone Offset
 
-This Package used for Get date time with offset to local time , format time or convert it to iso format with date phone without location and server time zone not in egypt
+This Package used for Get date time with offset to local time ,
+  format time or convert it to iso format with date phone without location and
+  server time zone.
 
 <h3> How to use</h3>
 
@@ -54,5 +56,25 @@ var date = "2023-07-14 20:00:28.733182+10:00";
 var date = DateTime.parse("2023-07-14 20:00:28.733182+10:00");
 
 date.formatDate("dd/MM/yyyy HH:mm:ss");
+
+```
+
+<h3> Use json format to Local ios or utc</h3>
+
+```dart
+@JsonSerializable(explicitToJson: true)
+class DateTimeJson {
+  @JsonDateTimeOffsetConverter() 
+  // or use
+  @JsonDateTimeUTCConverter()
+
+  DateTime? date;
+  DateTimeJson({
+    required this.date,
+  });
+  factory DateTimeJson.fromJson(Map<String, dynamic> json) =>
+      _$DateTimeJsonFromJson(json);
+  Map<String, dynamic> toJson() => _$DateTimeJsonToJson(this);
+}
 
 ```
