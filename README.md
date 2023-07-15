@@ -40,7 +40,7 @@ This Package used for Get date time with offset to local time , format time or c
 ```dart
 // convert date time time to string 
 DateTime dateAustraliaString = DateTime.parse("2023-07-14 20:00:28.733182+10:00");
-log("date time String egypt is  ${.isoDateTimeLocalString}");
+log("date time String egypt is  ${dateAustraliaString.isoDateTimeLocalString}");
 
 ```
 
@@ -48,11 +48,11 @@ log("date time String egypt is  ${.isoDateTimeLocalString}");
 
 ```dart
 
-var date = "2023-07-14 20:00:28.733182+10:00"
+var date = "2023-07-14 20:00:28.733182+10:00";
 
 // or use 
-var date = DateTime.parse("2023-07-14 20:00:28.733182+10:00")
+var date = DateTime.parse("2023-07-14 20:00:28.733182+10:00");
 
-//
+date.formatDate("dd/MM/yyyy HH:mm:ss");
 
 ```

@@ -7,7 +7,7 @@ part 'date_json_converter_freezed.g.dart';
 @Freezed()
 class DateTimeFreezed with _$DateTimeFreezed {
   factory DateTimeFreezed({
-    @JsonDateTimeUTCConverter() required DateTime date,
+    @JsonDateTimeUTCConverter() required DateTime? date,
   }) = _DateTimeFreezed;
 
   factory DateTimeFreezed.fromJson(Map<String, Object?> json) =>

@@ -6,7 +6,7 @@ part 'date_json_converter.g.dart';
 @JsonSerializable(explicitToJson: true)
 class DateTimeJson {
   @JsonDateTimeOffsetConverter()
-  DateTime date;
+  DateTime? date;
   DateTimeJson({
     required this.date,
   });

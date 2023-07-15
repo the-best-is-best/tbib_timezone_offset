@@ -8,10 +8,24 @@ part of 'date_json_converter_freezed.dart';
 
 _$_DateTimeFreezed _$$_DateTimeFreezedFromJson(Map<String, dynamic> json) =>
     _$_DateTimeFreezed(
-      date: const JsonDateTimeUTCConverter().fromJson(json['date'] as String),
+      date: _$JsonConverterFromJson<String, DateTime>(
+          json['date'], const JsonDateTimeUTCConverter().fromJson),
     );
 
 Map<String, dynamic> _$$_DateTimeFreezedToJson(_$_DateTimeFreezed instance) =>
     <String, dynamic>{
-      'date': const JsonDateTimeUTCConverter().toJson(instance.date),
+      'date': _$JsonConverterToJson<String, DateTime>(
+          instance.date, const JsonDateTimeUTCConverter().toJson),
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

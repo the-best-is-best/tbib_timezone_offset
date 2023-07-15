@@ -21,7 +21,7 @@ DateTimeFreezed _$DateTimeFreezedFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DateTimeFreezed {
   @JsonDateTimeUTCConverter()
-  DateTime get date => throw _privateConstructorUsedError;
+  DateTime? get date => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $DateTimeFreezedCopyWith<$Res> {
           DateTimeFreezed value, $Res Function(DateTimeFreezed) then) =
       _$DateTimeFreezedCopyWithImpl<$Res, DateTimeFreezed>;
   @useResult
-  $Res call({@JsonDateTimeUTCConverter() DateTime date});
+  $Res call({@JsonDateTimeUTCConverter() DateTime? date});
 }
 
 /// @nodoc
@@ -51,13 +51,13 @@ class _$DateTimeFreezedCopyWithImpl<$Res, $Val extends DateTimeFreezed>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = null,
+    Object? date = freezed,
   }) {
     return _then(_value.copyWith(
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -70,7 +70,7 @@ abstract class _$$_DateTimeFreezedCopyWith<$Res>
       __$$_DateTimeFreezedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonDateTimeUTCConverter() DateTime date});
+  $Res call({@JsonDateTimeUTCConverter() DateTime? date});
 }
 
 /// @nodoc
@@ -84,13 +84,13 @@ class __$$_DateTimeFreezedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? date = null,
+    Object? date = freezed,
   }) {
     return _then(_$_DateTimeFreezed(
-      date: null == date
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
     ));
   }
 }
@@ -105,7 +105,7 @@ class _$_DateTimeFreezed implements _DateTimeFreezed {
 
   @override
   @JsonDateTimeUTCConverter()
-  final DateTime date;
+  final DateTime? date;
 
   @override
   String toString() {
@@ -140,7 +140,7 @@ class _$_DateTimeFreezed implements _DateTimeFreezed {
 
 abstract class _DateTimeFreezed implements DateTimeFreezed {
   factory _DateTimeFreezed(
-          {@JsonDateTimeUTCConverter() required final DateTime date}) =
+          {@JsonDateTimeUTCConverter() required final DateTime? date}) =
       _$_DateTimeFreezed;
 
   factory _DateTimeFreezed.fromJson(Map<String, dynamic> json) =
@@ -148,7 +148,7 @@ abstract class _DateTimeFreezed implements DateTimeFreezed {
 
   @override
   @JsonDateTimeUTCConverter()
-  DateTime get date;
+  DateTime? get date;
   @override
   @JsonKey(ignore: true)
   _$$_DateTimeFreezedCopyWith<_$_DateTimeFreezed> get copyWith =>

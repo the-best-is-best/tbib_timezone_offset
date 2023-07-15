@@ -1,13 +1,5 @@
 import 'package:intl/intl.dart';
 
-/// {@template tbib_timezone_offset}
-/// Get date time with offset to local time , format time or convert it to iso format
-/// {@endtemplate}
-
-class TbibTimezoneOffset {
-  /// {@macro tbib_timezone_offset}
-}
-
 /// extension for DateTime
 extension DateTimeTbibTimezoneOffset on DateTime {
   /// get timezone offset
@@ -22,14 +14,11 @@ extension DateTimeTbibTimezoneOffset on DateTime {
 
   /// get iso date time string
   String get toIsoDateTimeLocalString {
-    return "${this.toIsoDateTimeUTCString.replaceAll('Z', '')}${this.getTimezoneOffset.isNegative ? "-" : "+"}${this.getTimezoneOffset.inHours.abs().toString().padLeft(2, "0")}:${(this.getTimezoneOffset.inMinutes - this.getTimezoneOffset.inHours * 60).toString().padLeft(2, "0")}";
+    return """${this.toIsoDateTimeUTCString.replaceAll('Z', '')}${this.getTimezoneOffset.isNegative ? "-" : "+"}${this.getTimezoneOffset.inHours.abs().toString().padLeft(2, "0")}:${(this.getTimezoneOffset.inMinutes - this.getTimezoneOffset.inHours * 60).toString().padLeft(2, "0")}""";
   }
 
   /// get iso date time string
   String get toIsoDateTimeUTCString {
-    // if (!this.isUtc) {
-    //   return '${this.add(this.getTimezoneOffset).toLocal().toIso8601String()}Z';
-    // }
     return this.toLocal().toIso8601String();
   }
 
@@ -44,7 +33,7 @@ extension DateTimeTbibTimezoneOffset on DateTime {
 extension DateTimeStringTbibTimezoneOffset on String {
   /// get date time
   DateTime get getDateTime {
-    return DateTime.parse(this).toLocal();
+    return DateTime.parse(this);
   }
 
   /// get timezone offset
