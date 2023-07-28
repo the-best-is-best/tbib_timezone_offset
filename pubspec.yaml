@@ -2,7 +2,7 @@ name: tbib_timezone_offset
 description: This Package used for Get date time with offset to local time ,
   format time or convert it to iso format with date phone without location and
   server time zone.
-version: 0.0.2
+version: 1.0.0
 
 homepage: "https://github.com/the-best-is-best/tbib_timezone_offset"
 

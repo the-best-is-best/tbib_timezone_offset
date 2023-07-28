@@ -71,6 +71,24 @@ class HomeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+          child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TBIBDatePickerFormField(
+          title: 'Date time picker',
+          onSaved: (value) {},
+          datePickerStyle: TBIBDatePickerStyle(
+            isDateAndTime: true,
+            getTime: ({required date}) {
+              log('date time is $date');
+            },
+            initDate: DateTime.now().add(const Duration(days: 5)),
+            startDate: DateTime.now(),
+            endDate: DateTime.now().add(const Duration(days: 10)),
+          ),
+        ),
+      )),
+    );
   }
 }
