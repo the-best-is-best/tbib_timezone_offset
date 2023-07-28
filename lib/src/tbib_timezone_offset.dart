@@ -23,9 +23,10 @@ extension DateTimeTbibTimezoneOffset on DateTime {
   }
 
   /// format date
-  String formatDate(String format) {
+  String formatDate(String format, {String? locale}) {
     final dateString = this.toIsoDateTimeUTCString;
-    return DateFormat(format).format(DateTime.parse(dateString).toLocal());
+    return DateFormat(format, locale)
+        .format(DateTime.parse(dateString).toLocal());
   }
 }
 
@@ -57,7 +58,7 @@ extension DateTimeStringTbibTimezoneOffset on String {
   }
 
   /// format date
-  String formatDate(String format) {
-    return this.getDateTime.formatDate(format);
+  String formatDate(String format, {String? locale}) {
+    return this.getDateTime.formatDate(format, locale: locale);
   }
 }
