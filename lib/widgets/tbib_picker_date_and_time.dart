@@ -12,7 +12,7 @@ class TBIBDatePickerStyle {
   final TimeOfDay? initTime;
 
   final DateFormat? formatDate;
-  final Function({required DateTime date})? getTime;
+  final void Function({required DateTime date})? getTime;
 
   const TBIBDatePickerStyle({
     this.isTime = false,
