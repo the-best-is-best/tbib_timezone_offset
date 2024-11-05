@@ -12,7 +12,7 @@ part of 'date_json_converter_freezed.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DateTimeFreezed _$DateTimeFreezedFromJson(Map<String, dynamic> json) {
   return _DateTimeFreezed.fromJson(json);
@@ -23,8 +23,12 @@ mixin _$DateTimeFreezed {
   @JsonDateTimeUTCConverter()
   DateTime? get date => throw _privateConstructorUsedError;
 
+  /// Serializes this DateTimeFreezed to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of DateTimeFreezed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $DateTimeFreezedCopyWith<DateTimeFreezed> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$DateTimeFreezedCopyWithImpl<$Res, $Val extends DateTimeFreezed>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of DateTimeFreezed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -63,30 +69,32 @@ class _$DateTimeFreezedCopyWithImpl<$Res, $Val extends DateTimeFreezed>
 }
 
 /// @nodoc
-abstract class _$$_DateTimeFreezedCopyWith<$Res>
+abstract class _$$DateTimeFreezedImplCopyWith<$Res>
     implements $DateTimeFreezedCopyWith<$Res> {
-  factory _$$_DateTimeFreezedCopyWith(
-          _$_DateTimeFreezed value, $Res Function(_$_DateTimeFreezed) then) =
-      __$$_DateTimeFreezedCopyWithImpl<$Res>;
+  factory _$$DateTimeFreezedImplCopyWith(_$DateTimeFreezedImpl value,
+          $Res Function(_$DateTimeFreezedImpl) then) =
+      __$$DateTimeFreezedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonDateTimeUTCConverter() DateTime? date});
 }
 
 /// @nodoc
-class __$$_DateTimeFreezedCopyWithImpl<$Res>
-    extends _$DateTimeFreezedCopyWithImpl<$Res, _$_DateTimeFreezed>
-    implements _$$_DateTimeFreezedCopyWith<$Res> {
-  __$$_DateTimeFreezedCopyWithImpl(
-      _$_DateTimeFreezed _value, $Res Function(_$_DateTimeFreezed) _then)
+class __$$DateTimeFreezedImplCopyWithImpl<$Res>
+    extends _$DateTimeFreezedCopyWithImpl<$Res, _$DateTimeFreezedImpl>
+    implements _$$DateTimeFreezedImplCopyWith<$Res> {
+  __$$DateTimeFreezedImplCopyWithImpl(
+      _$DateTimeFreezedImpl _value, $Res Function(_$DateTimeFreezedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of DateTimeFreezed
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? date = freezed,
   }) {
-    return _then(_$_DateTimeFreezed(
+    return _then(_$DateTimeFreezedImpl(
       date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -97,11 +105,11 @@ class __$$_DateTimeFreezedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DateTimeFreezed implements _DateTimeFreezed {
-  _$_DateTimeFreezed({@JsonDateTimeUTCConverter() required this.date});
+class _$DateTimeFreezedImpl implements _DateTimeFreezed {
+  _$DateTimeFreezedImpl({@JsonDateTimeUTCConverter() required this.date});
 
-  factory _$_DateTimeFreezed.fromJson(Map<String, dynamic> json) =>
-      _$$_DateTimeFreezedFromJson(json);
+  factory _$DateTimeFreezedImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DateTimeFreezedImplFromJson(json);
 
   @override
   @JsonDateTimeUTCConverter()
@@ -113,26 +121,29 @@ class _$_DateTimeFreezed implements _DateTimeFreezed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DateTimeFreezed &&
+            other is _$DateTimeFreezedImpl &&
             (identical(other.date, date) || other.date == date));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, date);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of DateTimeFreezed
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DateTimeFreezedCopyWith<_$_DateTimeFreezed> get copyWith =>
-      __$$_DateTimeFreezedCopyWithImpl<_$_DateTimeFreezed>(this, _$identity);
+  _$$DateTimeFreezedImplCopyWith<_$DateTimeFreezedImpl> get copyWith =>
+      __$$DateTimeFreezedImplCopyWithImpl<_$DateTimeFreezedImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DateTimeFreezedToJson(
+    return _$$DateTimeFreezedImplToJson(
       this,
     );
   }
@@ -141,16 +152,19 @@ class _$_DateTimeFreezed implements _DateTimeFreezed {
 abstract class _DateTimeFreezed implements DateTimeFreezed {
   factory _DateTimeFreezed(
           {@JsonDateTimeUTCConverter() required final DateTime? date}) =
-      _$_DateTimeFreezed;
+      _$DateTimeFreezedImpl;
 
   factory _DateTimeFreezed.fromJson(Map<String, dynamic> json) =
-      _$_DateTimeFreezed.fromJson;
+      _$DateTimeFreezedImpl.fromJson;
 
   @override
   @JsonDateTimeUTCConverter()
   DateTime? get date;
+
+  /// Create a copy of DateTimeFreezed
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_DateTimeFreezedCopyWith<_$_DateTimeFreezed> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DateTimeFreezedImplCopyWith<_$DateTimeFreezedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

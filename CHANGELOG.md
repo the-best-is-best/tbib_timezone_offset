@@ -1,3 +1,7 @@
+## 1.1.0
+
+- update dep
+
 ## 1.0.0
 
 - now format date with locale

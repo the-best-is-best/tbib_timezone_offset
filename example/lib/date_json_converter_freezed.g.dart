@@ -6,13 +6,15 @@ part of 'date_json_converter_freezed.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DateTimeFreezed _$$_DateTimeFreezedFromJson(Map<String, dynamic> json) =>
-    _$_DateTimeFreezed(
+_$DateTimeFreezedImpl _$$DateTimeFreezedImplFromJson(
+        Map<String, dynamic> json) =>
+    _$DateTimeFreezedImpl(
       date: _$JsonConverterFromJson<String, DateTime>(
           json['date'], const JsonDateTimeUTCConverter().fromJson),
     );
 
-Map<String, dynamic> _$$_DateTimeFreezedToJson(_$_DateTimeFreezed instance) =>
+Map<String, dynamic> _$$DateTimeFreezedImplToJson(
+        _$DateTimeFreezedImpl instance) =>
     <String, dynamic>{
       'date': _$JsonConverterToJson<String, DateTime>(
           instance.date, const JsonDateTimeUTCConverter().toJson),
